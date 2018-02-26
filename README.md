@@ -13,7 +13,7 @@ The Interplanetary Magnetic Field (IMF) is a magnetic field produced by solar wi
 Since solar winds cause disturbances in the Earth's ring current, these two measurements are closely related. In particular, the Z-component of the IMF is roughly perpindicular to the Earth's ring currents, so it has the greatest influence via electromagnetic induction.
 
 
-To determine the effects of solar events on the Earth's magnetosphere, we can use machine learning algorithms on existing data to create a predictive model. This will allow us to run simulations, possibly anticipating time-delayed ring current changes in response to IMF measurements.
+To determine the effects of solar events on the Earth's magnetosphere, we can use machine learning algorithms on existing data to create a predictive model. This will allow us to run simulations, and possibly predict ring-current changes in response to solar wind.
 
 
 # Resources
