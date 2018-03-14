@@ -2,7 +2,7 @@
 Demo task for Space@VT GSoC 2018
 
 # Summary
-The objective of this project is to predict the Disturbance Storm Time (DST) index given Interplanetary Magnetic Field (IMF) data, particularly the Z component of magnetic field. The project uses a neural network to model a year of IMF data and predict DST data. The resulting model predicts the general trend of DST well, but it usually fails to predict the exact value. However, this is just a simple prototype, and there are a number of improvements that could possibly improve the accuracy.
+The objective of this project is to predict the Disturbance Storm Time (DST) index given Interplanetary Magnetic Field (IMF) data, particularly the Z component of magnetic field. The project uses a neural network to model a year of IMF data and predict DST data. The resulting model predicts the general trend of DST fairly well, but it usually fails to predict the exact value. However, this is a prototype, and there are a number of improvements that could possibly improve the accuracy.
 
 # Background
 The Disturbance Storm Time (DST) index measures a magnetic field produced by ring current flowing around the earth's equator. During periods of disturbed space weather, the ring current will increase, causing a larger magnetic field. Negative values of DSV indicate that the induced magnetic field opposes the Earth's magnetic field.
@@ -20,6 +20,7 @@ Since we have both the input data (IMF Bz) and the output labels (DST), this is 
 At first, the predictions followed similar trends to the ground truth labels for negative DST, but would not make any prediction above a certain threshhold, so it did not predict positive DST well. This turned out to be a problem with the ReLU activiation function, which sometimes has problems if input data is a mix of positive and negative values or is not scaled a certain way. To fix this problem, I multiplied all the Bz data by 100, and added the minimum Bz value so that all the data was positive or 0. This resulted in predictions that did not cut off at a threshhold value. The R^2 value was rather low at around 0.1-0.2, because the predictions tend to follow the same trend, but are rarely exactly the same as the ground truth labels. I tested neural network layer sizes from 1-100, and found anything 5 or above had similar accuracy, so I used 5 layers for best efficiency and accuracy. I also experimented with adding different features including proton density and plasma flow speed from the IMF data set, but found they decreased accuracy. This may indicate that they also need some scaling and preprocessing, or they may not be well-correlated with the DST.
 
 Images below show the predictions vs. truth over a year, as well as two zoomed-in time periods of the neural network working well and not working well. If you are viewing this report as plain text, you can find the graphs at:
+
 https://github.com/e-271/SpaceVT-GSoC-Demo/report
 
 # Conclusions
@@ -27,10 +28,18 @@ Neural networks are a promising method for predicting the general trend of DST d
 
 # References
 OMNI data documentation
+
 https://omniweb.gsfc.nasa.gov/html/HROdocum.html
+
 Source of DST data
+
 http://wdc.kugi.kyoto-u.ac.jp/index.html
+
 Source of IMF data
+
 https://cdaweb.gsfc.nasa.gov/pub/data/omni/
+
 GitHub page for this project
+
 https://github.com/e-271/SpaceVT-GSoC-Demo
+
