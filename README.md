@@ -21,7 +21,7 @@ At first, the predictions followed similar trends to the ground truth labels for
 
 Images below show the predictions vs. truth over a year, as well as two zoomed-in time periods of the neural network working well and not working well. If you are viewing this report as plain text, you can find the graphs at:
 
-https://github.com/e-271/SpaceVT-GSoC-Demo/report
+https://github.com/e-271/SpaceVT-GSoC-Demo/tree/master/report
 
 # Conclusions
 Neural networks are a promising method for predicting the general trend of DST data, but a neural network trained using only Bz usually fails to predict the exact value of DST. It is possible that adding new features could increase the accuracy. The new features will need to be carefully selected and scaled for the neural network. It's also possible that there is some time lag between the Bz and the DST, but since we are using 1-hour averages it would need to be on that same timescale to have a significant effect. Another potential way of improving this algorithm is simply to give it more data - I used just one year, but IMF data is available as far back as 1963, and DST data is available from 1957. Training the network on 50 years of data instead of just 1 might increase the accuracy a lot. In conclusion, this algorithm is fairly good at predicting the general trend of DST, but is inaccurate in predicting the actual values. However, there are many ways that the value predictions could potentially be improved. 
