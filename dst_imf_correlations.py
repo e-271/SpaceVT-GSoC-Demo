@@ -141,11 +141,14 @@ def learn_predict(dst, imf):
         train_time = np.array(time[:test_a]+time[test_b:]).reshape(-1, 1)
         test_time = np.array(time[test_a:test_b]).reshape(-1, 1)
 
+        # This loop is to test out different layer sizes.
+        # For the 2015 data, the best layer size was 5 or 6.
+        # Anything with about 6 or more layers or so had almost identical accuracy.
+        # You can comment some of this out and just set layer_size equal to the desired value.
         max_train = -1
         max_test = -1
         layer_train = -1
         layer_test = -1
-
         for layer_size in range(1,10):
             nn = MLPRegressor(hidden_layer_sizes=layer_size, alpha=0.01, activation="relu", solver="lbfgs",
                               random_state=9)
